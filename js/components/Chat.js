@@ -4,7 +4,7 @@
  * @modify date 2020-03-31 18:39:15
  * @desc [description]
  */
-import { UIPanel, UIButton, UISpan, UIIcon } from './libs/ui.js';
+import { UIPanel, UIButton, UISpan, UIIcon } from '../libs/ui.js';
 
 const Chat = function(app) {
   const { lang } = app;

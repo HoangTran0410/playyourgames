@@ -10,6 +10,7 @@ const Config = function() {
 
   const staticStorage = {
     serverUrl: 'https://playyourgames-server.herokuapp.com/',
+    // serverUrl: 'localhost:3000',
     themes: ['light', 'dark'],
   };
 

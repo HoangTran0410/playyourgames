@@ -23,6 +23,7 @@ const App = function() {
 
     // utils
     switchToTab: new Signal(),
+    domLoaded: new Signal(),
   };
 
   this.config = new Config();

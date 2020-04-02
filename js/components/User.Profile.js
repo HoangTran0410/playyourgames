@@ -12,19 +12,20 @@ import {
   UIButton,
   UIIcon,
   UISpan,
-} from './libs/ui.js';
+  UIDiv,
+} from '../libs/ui.js';
 
-import { Others } from './utils/functions.js';
+import { Others } from '../utils/functions.js';
 
 const UserProfile = function(app) {
   const { lang, config } = app;
 
   // container
-  const container = new UIPanel();
+  const container = new UIDiv();
 
   // Header Profile
-  const profileHeader = new UIPanel()
-    .addClass('header')
+  const profileHeader = new UIDiv()
+    .addClass('header-div')
     .setProperty('textContent', lang.getKey('user/profile/title'));
 
   container.add(profileHeader);
@@ -33,7 +34,7 @@ const UserProfile = function(app) {
   const w = '100px';
 
   // id
-  const idUI = new UIRow().add(
+  const idUI = new UIDiv().add(
     new UIText(lang.getKey('user/profile/id') + ':').setStyle('width', w)
   );
 
@@ -83,9 +84,14 @@ const UserProfile = function(app) {
   idUI.add(id, btnCopy, txtCopied);
 
   // name
-  const nameUI = new UIRow().add(
-    new UIText(lang.getKey('user/profile/username') + ':').setStyle('width', w)
-  );
+  const nameUI = new UIDiv()
+    .setStyle('margin-top', '10px')
+    .add(
+      new UIText(lang.getKey('user/profile/username') + ':').setStyle(
+        'width',
+        w
+      )
+    );
 
   const nameInput = new UIInput(config.getKey('userName'))
     .setDisabled(true)
@@ -132,7 +138,7 @@ const UserProfile = function(app) {
 
   nameUI.add(nameInput, btnEditName, btnGroup);
 
-  container.add(new UIPanel().addClass('center-div').add(idUI, nameUI));
+  container.add(new UIDiv().addClass('center-div').add(idUI, nameUI));
 
   return container;
 };

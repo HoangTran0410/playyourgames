@@ -7,17 +7,17 @@
 import {
   UIText,
   UIPanel,
-  UIRow,
   UIInput,
   UIButton,
   UISelect,
   UIIcon,
-} from './libs/ui.js';
+  UIDiv,
+} from '../libs/ui.js';
 
 const RoomToolbar = function(app) {
   const { lang } = app;
 
-  const container = new UIRow().addClass('header');
+  const container = new UIDiv().addClass('header-div');
 
   // create room tool
   const createRoomTool = new UIPanel()

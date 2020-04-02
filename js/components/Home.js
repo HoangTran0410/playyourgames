@@ -4,7 +4,7 @@
  * @modify date 2020-03-31 21:53:01
  * @desc [description]
  */
-import { UITabbedPanel, UIPanel, UIIcon } from './libs/ui.js';
+import { UITabbedPanel, UIPanel, UIIcon } from '../libs/ui.js';
 import { Room } from './Room.js';
 import { Game } from './Game.js';
 import { User } from './User.js';

@@ -4,10 +4,10 @@
  * @modify date 2020-03-30 00:32:53
  * @desc [description]
  */
-import { UIText, UIRow } from './libs/ui.js';
+import { UIText, UIRow, UIDiv } from '../libs/ui.js';
 
 const UserList = function(app) {
-  const container = new UIRow().addClass('header');
+  const container = new UIDiv().addClass('header-div');
   container.add(new UIText('User List'));
 
   return container;

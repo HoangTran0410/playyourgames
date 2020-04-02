@@ -11,3 +11,5 @@ const app = new App();
 
 const home = new Home(app);
 document.body.appendChild(home.dom);
+
+app.signals.domLoaded.dispatch();

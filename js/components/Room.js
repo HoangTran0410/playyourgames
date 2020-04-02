@@ -4,12 +4,12 @@
  * @modify date 2020-03-29 23:44:18
  * @desc [description]
  */
-import { UIPanel } from './libs/ui.js';
+import { UIDiv } from '../libs/ui.js';
 import { RoomToolbar } from './Room.Toolbar.js';
 import { RoomList } from './Room.List.js';
 
 const Room = function(app) {
-  const container = new UIPanel()
+  const container = new UIDiv()
     .add(new RoomToolbar(app))
     .add(new RoomList(app));
 
