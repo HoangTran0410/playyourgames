@@ -1,0 +1,126 @@
+:root {
+  --light: #f8f9fa;
+  --dark: #343a40;
+}
+
+.theme-light {
+  --font-color: #343a40;
+  --bg-color: #f8f9fa;
+
+  --color-soft: #676969;
+  --color-bold: #c2c3c3;
+
+  --active-font-color: #343a40;
+  --active-bg-color: #aaabab;
+
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --info: #17a2b8;
+  --success: #28a745;
+  --danger: #dc3545;
+  --warning: #ffc107;
+}
+.theme-dark {
+  --font-color: #cccecf;
+  --bg-color: #2f343a;
+
+  --color-soft: #676969;
+  --color-bold: #1f2326;
+
+  --active-font-color: #eaeaea;
+  --active-bg-color: #0d0d0e;
+
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --info: #0e616e;
+  --success: #28a745;
+  --danger: #dc3545;
+  --warning: #ffc107;
+}
+
+/* normal */
+.color-primary {
+  color: var(--primary);
+}
+.color-secondary {
+  color: var(--secondary);
+}
+.color-info {
+  color: var(--info);
+}
+.color-success {
+  color: var(--success);
+}
+.color-danger {
+  color: var(--danger);
+}
+.color-warning {
+  color: var(--warning);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+.bg-secondary {
+  background-color: var(--secondary);
+}
+.bg-info {
+  background-color: var(--info);
+}
+.bg-success {
+  background-color: var(--success);
+}
+.bg-danger {
+  background-color: var(--danger);
+}
+.bg-warning {
+  background-color: var(--warning);
+}
+
+/* hover */
+.color-primary-hover:hover {
+  color: var(--primary);
+}
+.color-secondary-hover:hover {
+  color: var(--secondary);
+}
+.color-info-hover:hover {
+  color: var(--info);
+}
+.color-success-hover:hover {
+  color: var(--success);
+}
+.color-danger-hover:hover {
+  color: var(--danger);
+}
+.color-warning-hover:hover {
+  color: var(--warning);
+}
+
+.bg-primary-hover:hover,
+.bg-secondary-hover:hover,
+.bg-info-hover:hover,
+.bg-success-hover:hover,
+.bg-danger-hover:hover,
+.bg-warning-hover:hover {
+  color: var(--light);
+}
+
+.bg-primary-hover:hover {
+  background-color: var(--primary);
+}
+.bg-secondary-hover:hover {
+  background-color: var(--secondary);
+}
+.bg-info-hover:hover {
+  background-color: var(--info);
+}
+.bg-success-hover:hover {
+  background-color: var(--success);
+}
+.bg-danger-hover:hover {
+  background-color: var(--danger);
+}
+.bg-warning-hover:hover {
+  background-color: var(--warning);
+}

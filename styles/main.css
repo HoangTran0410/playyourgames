@@ -1,0 +1,82 @@
+* {
+  font-family: 'Consolas', sans-serif;
+  font-size: 1rem;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  overflow: auto;
+
+  color: var(--font-color);
+  background-color: var(--bg-color);
+}
+
+.center-div {
+  display: table;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-soft);
+}
+
+.hidden {
+  display: none;
+}
+
+.notification {
+  margin: 15px 0;
+  padding: 20px 15px;
+  color: white;
+  background-color: var(--info);
+}
+
+#homeContainer {
+  position: relative;
+  height: 100vh;
+
+  color: var(--font-color);
+  background-color: var(--bg-color);
+}
+
+.Panels {
+  max-width: 1024px;
+}
+
+/* Chat */
+#chatContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 250px;
+  background-color: var(--color-bold);
+}
+
+#chatContainer.closed {
+  left: -300px;
+}
+
+/* #chatContainer.closed #btnCloseChat { */
+/* transform-origin: 100% 100%; */
+/* transform: rotate(90deg); */
+/* transform: translateX(100%); */
+/* bottom: 0; */
+/* top: auto; */
+/* } */
+
+#btnCloseChat {
+  position: absolute;
+  right: 0px;
+  top: 0;
+  transform-origin: 100% 0;
+  transform: rotate(-90deg);
+
+  /* bottom: 100%; */
+  /* transform: translateX(100%); */
+}

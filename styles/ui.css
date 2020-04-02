@@ -1,0 +1,173 @@
+/* UIButton */
+.Button {
+  position: relative;
+  color: var(--font-color);
+  background-color: var(--color-bold);
+  border: 0px;
+  padding: 7px 9px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 0;
+}
+
+.Button:hover {
+  color: var(--light);
+  background-color: var(--secondary);
+}
+
+.Button:active {
+  background-color: var(--active-bg-color);
+}
+
+.Button.selected {
+  background-color: var(--active-bg-color);
+}
+
+/* UIInput */
+.Input {
+  tab-size: 4;
+  white-space: pre;
+  word-wrap: normal;
+  outline: none;
+  padding: 7px;
+  border: 1px solid transparent;
+  color: var(--font-color);
+  background-color: var(--color-bold);
+}
+
+.Input.success {
+  border-color: green;
+}
+
+.Input.fail {
+  border-color: red;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+
+.Input.Number {
+  /* color: #08f !important; */
+  /* font-size: 12px; */
+  border: 0px;
+  padding: 2px;
+  cursor: col-resize;
+}
+
+/* UITabbedPanel */
+.TabbedPanel {
+  display: block;
+  width: 100%;
+}
+
+.TabbedPanel .Tabs {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: center;
+
+  color: var(--font-color);
+  background-color: var(--color-bold);
+}
+
+.TabbedPanel .Tabs .Tab {
+  padding: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.TabbedPanel .Tabs .Tab:hover {
+  color: var(--light);
+  background-color: var(--secondary);
+}
+
+.TabbedPanel .Tabs .Tab.selected,
+.TabbedPanel .Tabs .Tab.selected .Icon {
+  color: var(--active-font-color);
+  background-color: var(--bg-color);
+}
+
+.TabbedPanel .Tabs .Panels {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Listbox */
+/* .Listbox {
+  color: var(--font-color);
+  background-color: var(--color-bold);
+  padding: 0;
+  width: 100%;
+  min-height: 140px;
+  cursor: default;
+  overflow: auto;
+}
+
+.Listbox .ListboxItem {
+  padding: 6px;
+  color: var(--font-color);
+  white-space: nowrap;
+}
+
+.Listbox .ListboxItem.active {
+  background-color: var(--active-bg-color);
+} */
+
+/* Select */
+.Select {
+  font-family: inherit;
+  color: var(--font-color);
+  background-color: var(--bg-color);
+  border: 0px;
+  cursor: pointer;
+  border: solid 1px var(--color-soft);
+  outline: none;
+}
+
+.Select:hover {
+  color: var(--font-color);
+}
+
+.Listbox {
+  color: var(--font-color);
+  background-color: var(--bg-color);
+}
+
+.Panel {
+  color: var(--font-color);
+}
+
+.Panels {
+  margin: auto;
+}
+
+.Row {
+  padding: 5px;
+}
+
+.Text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.Table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Table th,
+.Table tr {
+  text-align: center;
+  padding: 5px;
+}
+
+.Icon {
+  color: inherit;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.Icon.not-bright {
+  color: var(--color-bold);
+}
