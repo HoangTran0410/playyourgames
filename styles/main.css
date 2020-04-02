@@ -1,13 +1,4 @@
-* {
-  font-family: 'Consolas', sans-serif;
-  font-size: 1rem;
-}
-
 body {
-  margin: 0 auto;
-  padding: 0;
-  overflow: auto;
-
   color: var(--font-color);
   background-color: var(--bg-color);
 }
@@ -17,7 +8,7 @@ body {
   margin: 0 auto;
 }
 
-.header {
+.header-div {
   text-align: center;
   margin: 10px 0;
   padding: 10px 0;
