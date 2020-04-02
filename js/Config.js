@@ -9,7 +9,7 @@ const Config = function() {
   const name = 'playyourgames-client';
 
   const staticStorage = {
-    serverUrl: 'https://playyourgames.herokuapp.com/',
+    serverUrl: 'https://playyourgames-server.herokuapp.com/',
     themes: ['light', 'dark'],
   };
 
