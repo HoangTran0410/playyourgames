@@ -4,8 +4,8 @@
  * @modify date 2020-03-31 18:39:12
  * @desc [description]
  */
-import { App } from './App.js';
-import { Home } from './Home.js';
+import { App } from './components/App.js';
+import { Home } from './components/Home.js';
 
 const app = new App();
 
