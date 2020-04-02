@@ -1,5 +1,7 @@
 /**
  * @author mrdoob / http://mrdoob.com/
+ * @modify HoangTran https://github.com/HoangTran0410
+ * @link http://youmightnotneedjquery.com/
  */
 
 var UIElement = function(dom) {
@@ -13,6 +15,42 @@ UIElement.prototype = {
 
       if (argument instanceof UIElement) {
         this.dom.appendChild(argument.dom);
+      } else {
+        console.error(
+          'UIElement:',
+          argument,
+          'is not an instance of UIElement.'
+        );
+      }
+    }
+
+    return this;
+  },
+
+  addBefore: function() {
+    for (var i = 0; i < arguments.length; i++) {
+      var argument = arguments[i];
+
+      if (argument instanceof UIElement) {
+        this.dom.insertAdjacentElement('beforebegin', argument.dom);
+      } else {
+        console.error(
+          'UIElement:',
+          argument,
+          'is not an instance of UIElement.'
+        );
+      }
+    }
+
+    return this;
+  },
+
+  addAfter: function() {
+    for (var i = arguments.length - 1; i > 0; i--) {
+      var argument = arguments[i];
+
+      if (argument instanceof UIElement) {
+        this.dom.insertAdjacentElement('afterend', argument.dom);
       } else {
         console.error(
           'UIElement:',
@@ -49,6 +87,25 @@ UIElement.prototype = {
     }
   },
 
+  getHeight: function() {
+    return parseFloat(
+      getComputedStyle(this.dom, null).height.replace('px', '')
+    );
+  },
+
+  getHeight: function() {
+    return parseFloat(getComputedStyle(this.dom, null).width.replace('px', ''));
+  },
+
+  getOffset: function() {
+    let rect = this.dom.getBoundingClientRect();
+
+    return {
+      top: rect.top + document.body.scrollTop,
+      left: rect.left + document.body.scrollLeft,
+    };
+  },
+
   setId: function(id) {
     this.dom.id = id;
 
@@ -82,17 +139,22 @@ UIElement.prototype = {
     else this.dom.classList.add(name);
   },
 
-  // setStyle: function(style, array) {
-  //   for (var i = 0; i < array.length; i++) {
-  //     this.dom.style[style] = array[i];
-  //   }
-
-  //   return this;
-  // },
-
   setStyle: function(style, value) {
     this.dom.style[style] = value;
 
+    return this;
+  },
+
+  getStyle: function(ruleName) {
+    return getComputedStyle(this.dom)[ruleName];
+  },
+
+  getAttribute: function(attr) {
+    return this.dom.getAttribute(attr);
+  },
+
+  setAttribute: function(attr, value) {
+    this.dom.setAttribute(attr, value);
     return this;
   },
 
@@ -122,8 +184,17 @@ UIElement.prototype = {
     this.dom.focus();
   },
 
-  clone: function() {
-    return null;
+  cloneDom: function() {
+    return this.dom.cloneNode(true);
+  },
+
+  contains: function() {
+    let argument = arguments[0];
+    if (argument instanceof UIElement) {
+      return this.dom !== argument.dom && this.dom.contains(argument.dom);
+    } else {
+      console.error('UIElement:', argument, 'is not an instance of UIElement.');
+    }
   },
 };
 
