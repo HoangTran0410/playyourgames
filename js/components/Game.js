@@ -4,7 +4,7 @@
  * @modify date 2020-03-29 23:58:25
  * @desc [description]
  */
-import { UIDiv } from '../libs/ui.js';
+import { UIDiv } from '../utils/ui.js';
 import { GameList } from './Game.List.js';
 
 const Game = function(app) {

@@ -12,8 +12,8 @@ import {
   UIRow,
   UIButton,
   UIIcon,
-} from '../libs/ui.js';
 import { Others } from '../utils/functions.js';
+} from '../utils/ui.js';
 
 const Settings = function(app) {
   const { lang, config } = app;

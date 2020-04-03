@@ -93,8 +93,20 @@ UIElement.prototype = {
     );
   },
 
-  getHeight: function() {
+  setHeight: function(val) {
+    if (typeof val === 'function') val = val();
+    if (typeof val === 'string') this.dom.style.height = val;
+    else this.dom.style.height = val + 'px';
+  },
+
+  getWidth: function() {
     return parseFloat(getComputedStyle(this.dom, null).width.replace('px', ''));
+  },
+
+  setWidth: function(val) {
+    if (typeof val === 'function') val = val();
+    if (typeof val === 'string') this.dom.style.width = val;
+    else this.dom.style.width = val + 'px';
   },
 
   getOffset: function() {
@@ -124,19 +136,17 @@ UIElement.prototype = {
 
   addClass: function(name) {
     this.dom.classList.add(name);
-
     return this;
   },
 
   removeClass: function(name) {
     this.dom.classList.remove(name);
-
     return this;
   },
 
-  toggleClass: function(name) {
-    if (this.dom.classList.contains(name)) this.dom.classList.remove(name);
-    else this.dom.classList.add(name);
+  toggleClass: function(className) {
+    this.dom.classList.toggle(className);
+    return this;
   },
 
   setStyle: function(style, value) {
@@ -156,6 +166,12 @@ UIElement.prototype = {
   setAttribute: function(attr, value) {
     this.dom.setAttribute(attr, value);
     return this;
+  },
+
+  removeAttribute: function() {
+    for (let argument of arguments) {
+      this.dom.removeAttribute(argument);
+    }
   },
 
   setProperty: function(property, value) {
@@ -178,6 +194,25 @@ UIElement.prototype = {
 
   getTextContent: function() {
     return this.dom.textContent;
+  },
+
+  addHTML: function(html) {
+    this.dom.innerHTML += html;
+    return this;
+  },
+
+  html: function(html) {
+    this.dom.innerHTML = html;
+    return this;
+  },
+
+  replaceWith: function() {
+    const argument = arguments[0];
+    if (argument instanceof UIElement) {
+      this.dom.outerHTML = argument.dom;
+    } else {
+      console.error('UIElement:', argument, 'is not an instance of UIElement.');
+    }
   },
 
   focus: function() {

@@ -12,7 +12,7 @@ import {
   UISelect,
   UIIcon,
   UIDiv,
-} from '../libs/ui.js';
+} from '../utils/ui.js';
 
 const RoomToolbar = function(app) {
   const { lang } = app;

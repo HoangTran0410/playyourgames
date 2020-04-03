@@ -4,7 +4,7 @@
  * @modify date 2020-03-29 23:44:39
  * @desc [description]
  */
-import { UIDiv } from '../libs/ui.js';
+import { UIDiv } from '../utils/ui.js';
 import { UserProfile } from './User.Profile.js';
 import { UserList } from './User.List.js';
 

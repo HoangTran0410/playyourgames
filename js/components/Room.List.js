@@ -11,7 +11,7 @@ import {
   UIIcon,
   UIRow,
   UIDiv,
-} from '../libs/ui.js';
+} from '../utils/ui.js';
 
 const RoomList = function(app) {
   const { lang } = app;

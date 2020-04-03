@@ -4,7 +4,7 @@
  * @modify date 2020-03-29 23:57:27
  * @desc [description]
  */
-import { UIText, UIDiv } from '../libs/ui.js';
+import { UIText, UIDiv } from '../utils/ui.js';
 
 const GameList = function(app) {
   const container = new UIDiv();

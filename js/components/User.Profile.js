@@ -13,7 +13,7 @@ import {
   UIIcon,
   UISpan,
   UIDiv,
-} from '../libs/ui.js';
+} from '../utils/ui.js';
 
 import { Others } from '../utils/functions.js';
 
