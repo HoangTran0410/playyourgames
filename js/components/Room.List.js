@@ -54,48 +54,54 @@ const RoomList = function(app) {
     },
   ];
 
-  const grid = new UIDiv().addClass('grid');
+  //   const grid = new UIDiv().addClass('grid');
 
-  app.signals.domLoaded.add(function() {
-    const gridMuuri = new Muuri(grid.dom);
-    console.log(gridMuuri);
+  //   grid.addHTML(`<div class="item">
+  //   <div class="item-content">
+  //     <!-- Safe zone, enter your custom markup -->
+  //     This can be anything.
+  //     <!-- Safe zone ends -->
+  //   </div>
+  // </div>`);
+
+  //   app.signals.domLoaded.add(function() {
+  //     const gridMuuri = new Muuri(grid.dom);
+  //     // console.log(gridMuuri);
+  //   });
+
+  // container.add(grid);
+
+  const fakeDataProcessed = fakeData.map((room, index) => {
+    return [
+      index + 1,
+      room.name,
+      room.game
+        ? new UIButton(room.game).onClick(function() {
+            app.signals.switchToTab.dispatch('game');
+          })
+        : '_',
+      new UIButton(room.owner.name).onClick(function() {
+        app.signals.switchToTab.dispatch('user');
+      }),
+      `${room.playerCount}/${room.maxPlayer}`,
+      new UIButton(lang.getKey('room/list/table/join/button'))
+        .addClass('bg-secondary-hover')
+        .add(new UIIcon('fa fa-chevron-right'))
+        .onClick(function() {
+          alert('test: joining...');
+        }),
+    ];
   });
 
-  console.log(grid.dom);
+  const table = new UITable()
+    .setHeaders(lang.getKey('room/list/table/headers'))
+    .setRows(fakeDataProcessed);
 
-  container.add(grid);
+  app.signals.searchRoom.add(function(value, columns) {
+    table.filter(value, columns);
+  });
 
-  // const fakeDataProcessed = fakeData.map((room, index) => {
-  //   return [
-  //     index + 1,
-  //     room.name,
-  //     room.game
-  //       ? new UIButton(room.game).onClick(function() {
-  //           app.signals.switchToTab.dispatch('game');
-  //         })
-  //       : '_',
-  //     new UIButton(room.owner.name).onClick(function() {
-  //       app.signals.switchToTab.dispatch('user');
-  //     }),
-  //     `${room.playerCount}/${room.maxPlayer}`,
-  //     new UIButton(lang.getKey('room/list/table/join/button'))
-  //       .addClass('bg-secondary-hover')
-  //       .add(new UIIcon('fa fa-chevron-right'))
-  //       .onClick(function() {
-  //         alert('test: joining...');
-  //       }),
-  //   ];
-  // });
-
-  // const table = new UITable()
-  //   .setHeaders(lang.getKey('room/list/table/headers'))
-  //   .setRows(fakeDataProcessed);
-
-  // app.signals.searchRoom.add(function(value, columns) {
-  //   table.filter(value, columns);
-  // });
-
-  // container.add(table);
+  container.add(table);
 
   // placeholder
   const emptyPlaceholder = new UIDiv()
