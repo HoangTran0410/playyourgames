@@ -20,6 +20,7 @@ body {
   display: none;
 }
 
+/* list room empty noti */
 .notification {
   margin: 15px 0;
   padding: 20px 15px;
@@ -27,16 +28,22 @@ body {
   background-color: var(--info);
 }
 
-#homeContainer {
-  position: relative;
-  height: 100vh;
-
-  color: var(--font-color);
-  background-color: var(--bg-color);
+/* muuri */
+.placeholder-div {
+  border: 1px dashed var(--color-soft);
 }
 
 .Panels {
+  padding-bottom: 50px;
   max-width: 1024px;
+}
+
+#homeContainer {
+  position: relative;
+  min-height: 100vh;
+
+  color: var(--font-color);
+  background-color: var(--bg-color);
 }
 
 /* Chat */
@@ -47,6 +54,8 @@ body {
   width: 300px;
   height: 250px;
   background-color: var(--color-bold);
+
+  z-index: 2;
 }
 
 #chatContainer.closed {

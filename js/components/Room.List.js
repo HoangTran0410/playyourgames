@@ -54,23 +54,6 @@ const RoomList = function(app) {
     },
   ];
 
-  //   const grid = new UIDiv().addClass('grid');
-
-  //   grid.addHTML(`<div class="item">
-  //   <div class="item-content">
-  //     <!-- Safe zone, enter your custom markup -->
-  //     This can be anything.
-  //     <!-- Safe zone ends -->
-  //   </div>
-  // </div>`);
-
-  //   app.signals.domLoaded.add(function() {
-  //     const gridMuuri = new Muuri(grid.dom);
-  //     // console.log(gridMuuri);
-  //   });
-
-  // container.add(grid);
-
   const fakeDataProcessed = fakeData.map((room, index) => {
     return [
       index + 1,
@@ -93,17 +76,55 @@ const RoomList = function(app) {
     ];
   });
 
-  const table = new UITable()
-    .setHeaders(lang.getKey('room/list/table/headers'))
-    .setRows(fakeDataProcessed);
+  const grid = new UIDiv()
+    .addClass('grid')
+    .add(
+      new UIDiv().addClass('item').add(new UIDiv().addClass('item-content')),
+      new UIDiv().addClass('item').add(new UIDiv().addClass('item-content')),
+      new UIDiv().addClass('item').add(new UIDiv().addClass('item-content')),
+      new UIDiv().addClass('item').add(new UIDiv().addClass('item-content')),
+      new UIDiv().addClass('item').add(new UIDiv().addClass('item-content')),
+      new UIDiv().addClass('item').add(new UIDiv().addClass('item-content')),
+      new UIDiv().addClass('item').add(new UIDiv().addClass('item-content'))
+    );
 
-  app.signals.searchRoom.add(function(value, columns) {
-    table.filter(value, columns);
+  container.add(grid);
+
+  // muuri works
+  let muuri;
+  app.signals.filterRoom.add(function() {
+    muuri.filter(function(item) {
+      return item.getElement().hasAttribute('data-foo');
+    });
   });
 
-  container.add(table);
+  app.signals.domLoaded.add(function() {
+    const phPool = [];
+    const phElem = new UIDiv();
 
-  // placeholder
+    muuri = new Muuri(grid.dom, {
+      dragEnabled: true,
+      itemPlaceholderClass: 'placeholder-div',
+      dragPlaceholder: {
+        enabled: true,
+        duration: 400,
+        easing: 'ease-out',
+        createElement(item) {
+          return phPool.pop() || phElem.cloneDom();
+        },
+        onCreate(item, element) {
+          // If you want to do something after the
+          // placeholder is fully created, here's
+          // the place to do it.
+        },
+        onRemove(item, element) {
+          phPool.push(element);
+        },
+      },
+    });
+  });
+
+  // placeholder empty
   const emptyPlaceholder = new UIDiv()
     .setTextContent(lang.getKey('room/list/table/empty/placeholder'))
     .addClass('notification');

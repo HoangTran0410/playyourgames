@@ -19,7 +19,7 @@ const App = function() {
     changeTheme: new Signal(),
 
     // room
-    searchRoom: new Signal(),
+    filterRoom: new Signal(),
 
     // utils
     domLoaded: new Signal(),
