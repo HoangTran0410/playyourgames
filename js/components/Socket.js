@@ -5,7 +5,7 @@
  * @desc [description]
  */
 const Socket = function(app) {
-  const { config } = app;
+  const { lang, config } = app;
 
   const loading = Swal.fire({
     title: 'Connecting..',
@@ -36,13 +36,16 @@ const Socket = function(app) {
   });
 
   socket.on('disconnect', reason => {
-    Swal.fire({
-      icon: 'error',
-      title: 'Mất kết nối',
-    });
     if (reason === 'io server disconnect') {
-      // the disconnection was initiated by the server, you need to reconnect manually
-      socket.connect();
+      Swal.fire({
+        icon: 'error',
+        title: lang.getKey('disconnect/server/title'),
+        text: lang.getKey('disconnect/server/text'),
+        confirmButtonText: 'Reconnect',
+      }).then(result => {
+        // the disconnection was initiated by the server, you need to reconnect manually
+        socket.connect();
+      });
     }
     // else the socket will automatically try to reconnect
   });
@@ -50,8 +53,8 @@ const Socket = function(app) {
   socket.on('reconnecting', attemptNumber => {
     Swal.fire({
       icon: 'error',
-      title: 'Mất kết nối',
-      text: `Đang thử kết nối lại... ${attemptNumber}`,
+      title: lang.getKey('reconnecting/title'),
+      text: lang.getKey('reconnecting/text') + ' ' + attemptNumber,
       grow: 'row',
       allowEscapeKey: false,
       allowOutsideClick: false,
@@ -65,8 +68,8 @@ const Socket = function(app) {
   socket.on('reconnect', attemptNumber => {
     Swal.fire({
       icon: 'success',
-      title: 'Đã kết nối lại',
-      text: `Sau ${attemptNumber} lần thử.`,
+      title: lang.getKey('reconnected/title'),
+      text: lang.getKey('reconnected/text'),
     });
   });
 

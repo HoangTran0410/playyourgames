@@ -10,6 +10,15 @@ const Lang = function(config) {
   const values = {
     en: {
       name: 'English',
+
+      'disconnect/server/title': 'Connection Lost',
+      'disconnect/server/text': 'The server is not responding',
+      'disconnect/server/button/reconnect': 'Reconnect',
+      'reconnecting/title': 'Connection Lost',
+      'reconnecting/text': 'Trying to reconnect... ',
+      'reconnected/title': 'Reconnected',
+      'reconnected/text': 'You are Online now with new ID',
+
       'room/title': 'Room',
       'game/title': 'Game',
       'chat/title': 'Chat',
@@ -66,6 +75,15 @@ const Lang = function(config) {
     },
     vn: {
       name: 'Tiếng Việt',
+
+      'disconnect/server/title': 'Mất kết nối',
+      'disconnect/server/text': 'Máy chủ không phản hồi',
+      'disconnect/server/button/reconnect': 'Kết nối lại',
+      'reconnecting/title': 'Mất kết nối',
+      'reconnecting/text': 'Đang kết nối lại... ',
+      'reconnected/title': 'Đã kết nối lại',
+      'reconnected/text': 'Bạn đã trở lại trực tuyến với Mã mới',
+
       'room/title': 'Phòng',
       'game/title': 'Trò chơi',
       'chat/title': 'Trò chuyện',
