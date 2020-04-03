@@ -52,7 +52,7 @@ const RoomToolbar = function(app) {
 
   // search input
   const searchInput = new UIInput()
-    .setStyle('max-width', '15ch')
+    .setStyle('max-width', '20ch')
     .setProperty('placeholder', lang.getKey('room/toolBar/search/placeholder'))
     .onKeyUp(function() {
       const value = this.getValue();
@@ -63,6 +63,7 @@ const RoomToolbar = function(app) {
   const searchBySelect = new UISelect()
     .setOptions(options)
     .setValue(columnToSearch)
+    .setStyle('margin-left', '5px')
     .onChange(function() {
       let value = this.getValue();
       columnToSearch = value; // save value
@@ -71,11 +72,11 @@ const RoomToolbar = function(app) {
     });
 
   // text search by
-  const searchByText = new UIText(
-    lang.getKey('room/toolBar/search/by')
-  ).setStyle('padding', '0 5px');
+  // const searchByText = new UIText(
+  //   lang.getKey('room/toolBar/search/by')
+  // ).setStyle('padding', '0 5px');
 
-  searchTool.add(searchInput, searchByText, searchBySelect);
+  searchTool.add(searchInput, searchBySelect);
 
   // end search tool
 
