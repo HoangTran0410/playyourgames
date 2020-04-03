@@ -15,7 +15,7 @@ import {
   UIDiv,
 } from '../utils/ui.js';
 
-import { Others } from '../utils/functions.js';
+import Utils from '../utils/functions.js';
 
 const UserProfile = function(app) {
   const { lang, config } = app;
@@ -60,7 +60,7 @@ const UserProfile = function(app) {
   const btnCopy = new UIButton(lang.getKey('user/profile/id/copy'))
     .add(new UIIcon('fa fa-clone'))
     .onClick(function() {
-      Others.copyTextToClipboard(
+      Utils.copyTextToClipboard(
         id.getValue(),
         function() {
           btnCopy.addClass('hidden');

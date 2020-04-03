@@ -12,8 +12,8 @@ import {
   UIRow,
   UIButton,
   UIIcon,
-import { Others } from '../utils/functions.js';
 } from '../utils/ui.js';
+import Utils from '../utils/functions.js';
 
 const Settings = function(app) {
   const { lang, config } = app;
@@ -72,7 +72,7 @@ const Settings = function(app) {
 
   // get prefer theme if needed
   if (!config.getKey('theme')) {
-    const preferTheme = Others.detectColorScheme();
+    const preferTheme = Utils.detectColorScheme();
     console.log(`Prefer theme detected: ${preferTheme}`);
     if (preferTheme) {
       app.signals.changeTheme.dispatch(preferTheme);
