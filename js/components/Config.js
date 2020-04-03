@@ -16,7 +16,6 @@ const Config = function() {
 
   const storage = {
     language: 'en',
-    tab: 'room',
     userName: '',
     theme: null,
   };

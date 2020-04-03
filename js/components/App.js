@@ -22,7 +22,6 @@ const App = function() {
     searchRoom: new Signal(),
 
     // utils
-    switchToTab: new Signal(),
     domLoaded: new Signal(),
   };
 

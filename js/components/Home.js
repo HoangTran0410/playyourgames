@@ -30,9 +30,8 @@ const Home = function(app) {
 
   // tabbed
   const tabbed = new UITabbedPanel()
-    .onTabChanged(function(id) {
-      config.setKey('tab', id);
-    })
+    // .onTabChanged(function(id) {
+    // })
     .addTab(
       'room',
       lang.getKey('room/title'),
@@ -58,11 +57,7 @@ const Home = function(app) {
       new UIIcon('fa fa-gear').addClass('not-bright')
     );
 
-  tabbed.select(config.getKey('tab'));
-
-  app.signals.switchToTab.add(function(tabId) {
-    tabbed.select(tabId);
-  });
+  tabbed.select('room');
 
   // chat
   const chat = new Chat(app);
