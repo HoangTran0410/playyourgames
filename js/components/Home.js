@@ -4,22 +4,22 @@
  * @modify date 2020-03-31 21:53:01
  * @desc [description]
  */
-import { UITabbedPanel, UIPanel, UIIcon } from '../utils/ui.js';
+import { UITabbedPanel, UIPanel, UIIcon, UIDiv } from '../utils/ui.js';
 import { Room } from './Room.js';
 import { Game } from './Game.js';
 import { User } from './User.js';
 import { Settings } from './Settings.js';
 import { Chat } from './Chat.js';
 
-const Home = function(app) {
+const Home = function (app) {
   const { lang, config } = app;
 
-  const container = new UIPanel()
+  const container = new UIDiv()
     .setId('homeContainer')
     .addClass('theme-' + config.getKey('theme')); // apply theme
 
   // signals themes
-  app.signals.changeTheme.add(function(theme) {
+  app.signals.changeTheme.add(function (theme) {
     if (config.getKey('themes').indexOf(theme) > -1) {
       container.removeClass('theme-' + config.getKey('theme')); // remove current theme
       container.addClass('theme-' + theme); // apply new theme
