@@ -15,7 +15,8 @@ import {
 } from '../utils/ui.js';
 import Utils from '../utils/functions.js';
 
-const Settings = function(app) {
+const Settings = function (app) {
+  // console.log("Settings -> app", app)
   const { lang, config } = app;
 
   const container = new UIPanel()
@@ -31,10 +32,10 @@ const Settings = function(app) {
       .setStyle('width', '150px')
       .setOptions(lang.getAvailableLangs())
       .setValue(lang.getCurrentLang())
-      .onFocus(function() {
+      .onFocus(function () {
         this.previous = this.getValue();
       })
-      .onChange(function() {
+      .onChange(function () {
         const newLang = this.getValue();
         const ref = this;
 
@@ -51,7 +52,7 @@ const Settings = function(app) {
           ),
           showCancelButton: true,
           reverseButtons: true,
-        }).then(result => {
+        }).then((result) => {
           if (result.value) {
             lang.set(newLang);
             window.location.reload();
@@ -65,7 +66,7 @@ const Settings = function(app) {
 
   // theme
   const themeOptions = {};
-  config.getKey('themes').forEach(key => {
+  config.getKey('themes').forEach((key) => {
     const value = lang.getKey(`settings/theme/${key}`);
     themeOptions[key] = value;
   });
@@ -73,7 +74,7 @@ const Settings = function(app) {
   // get prefer theme if needed
   if (!config.getKey('theme')) {
     const preferTheme = Utils.detectColorScheme();
-    console.log(`Prefer theme detected: ${preferTheme}`);
+    // console.log(`Prefer theme detected: ${preferTheme}`);
     if (preferTheme) {
       app.signals.changeTheme.dispatch(preferTheme);
     } else {
@@ -87,7 +88,7 @@ const Settings = function(app) {
       .setStyle('width', '150px')
       .setOptions(themeOptions)
       .setValue(config.getKey('theme'))
-      .onChange(function() {
+      .onChange(function () {
         const value = this.getValue();
         app.signals.changeTheme.dispatch(value);
       })
@@ -101,7 +102,7 @@ const Settings = function(app) {
     new UIButton(lang.getKey('settings/reset/button'))
       .addClass('bg-danger-hover')
       .add(new UIIcon('fa fa-trash'))
-      .onClick(function() {
+      .onClick(function () {
         Swal.fire({
           title: lang.getKey('settings/reset/confirm/title'),
           text: lang.getKey('settings/reset/confirm/text'),
@@ -109,7 +110,7 @@ const Settings = function(app) {
           cancelButtonText: lang.getKey('settings/reset/confirm/button/cancel'),
           showCancelButton: true,
           reverseButtons: true,
-        }).then(result => {
+        }).then((result) => {
           if (result.value) {
             config.clear();
             window.location.reload();
