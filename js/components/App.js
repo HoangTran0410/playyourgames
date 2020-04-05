@@ -4,11 +4,11 @@
  * @modify date 2020-03-31 18:39:24
  * @desc [description]
  */
-import { Config } from './Config.js';
-import { Lang } from './Lang.js';
+import { Config } from '../configs/Config.js';
+import { Lang } from '../utils/Lang.js';
 import { Socket } from './Socket.js';
 
-const App = function() {
+const App = function () {
   const { Signal } = signals;
 
   this.signals = {
