@@ -9,8 +9,8 @@ import { detectLanguage, detectColorScheme } from '../utils/functions.js';
 
 const Config = function () {
   const staticStorage = {
-    // serverUrl: 'https://playyourgames-server.herokuapp.com/',
-    serverUrl: 'localhost:3000',
+    serverUrl: 'https://playyourgames-server.herokuapp.com/',
+//     serverUrl: 'localhost:3000',
     themes: ['light', 'dark'],
     lsKey: 'playYourGames',
   };
