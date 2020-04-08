@@ -5,19 +5,19 @@
  * @desc idea from threeJs editor
  */
 
-const Config = function() {
-  const name = 'playyourgames-client';
+import { detectLanguage, detectColorScheme } from '../utils/functions.js';
 
+const Config = function () {
   const staticStorage = {
     // serverUrl: 'https://playyourgames-server.herokuapp.com/',
     serverUrl: 'localhost:3000',
     themes: ['light', 'dark'],
+    lsKey: 'playYourGames',
   };
-
   const storage = {
-    language: 'en',
-    userName: '',
-    theme: null,
+    locale: detectLanguage(),
+    theme: detectColorScheme(),
+    userName: null,
   };
 
   if (window.localStorage[name] === undefined) {
@@ -32,19 +32,19 @@ const Config = function() {
 
   return {
     getKey(key) {
-      return storage[key] || staticStorage[key];
+      return staticStorage[key] || storage[key];
     },
-    setKey: function() {
+    setKey: function () {
       // key, value, key, value ...
 
       for (var i = 0, l = arguments.length; i < l; i += 2) {
         storage[arguments[i]] = arguments[i + 1];
       }
 
-      window.localStorage[name] = JSON.stringify(storage);
+      window.localStorage[staticStorage.lsKey] = JSON.stringify(storage);
     },
 
-    clear: function() {
+    clear: function () {
       delete window.localStorage[name];
     },
   };
