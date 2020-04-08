@@ -46,15 +46,15 @@
 
   - [Re:Dom - Homepage -> I choose this](https://redom.js.org/)
 
-- [svelte](https://svelte.dev/)
+  - [svelte](https://svelte.dev/)
 
   - [sinuous](https://sinuous.netlify.com/)
 
-- [Yo-yo.js](https://github.com/maxogden/yo-yo#yo-yojs)
+  - [Yo-yo.js](https://github.com/maxogden/yo-yo#yo-yojs)
 
   - [BetterDom.js - Tips](https://www.smashingmagazine.com/2014/01/writing-a-better-javascript-library-for-the-dom/)
 
-- [BetterDom.js - Repo](https://github.com/chemerisuk/better-dom)
+  - [BetterDom.js - Repo](https://github.com/chemerisuk/better-dom)
 
   - [Interact.js - Home page](https://interactjs.io/)
 
@@ -62,30 +62,30 @@
 
   - [Sematic UI - Get started](https://semantic-ui.com/introduction/getting-started.html)
 
-- [Theme](https://semantic-ui.com/usage/theming.html)
+  - [Theme](https://semantic-ui.com/usage/theming.html)
 
-  - [ ] Lodash / Underscore:
+- [ ] Lodash / Underscore:
 
-- [Homepage](https://lodash.com/docs/4.17.15)
+  - [Homepage](https://lodash.com/docs/4.17.15)
 
-  - [ ] Auth socket:
+- [ ] Auth socket:
 
-- [Tutor Vietnamese](https://viblo.asia/p/authentication-cho-socketio-maGK78n9Zj2)
+  - [Tutor Vietnamese](https://viblo.asia/p/authentication-cho-socketio-maGK78n9Zj2)
 
-  - [ ] Muuri:
+- [ ] Muuri:
 
-- [Github repo](https://github.com/haltu/muuri)
+  - [Github repo](https://github.com/haltu/muuri)
 
-  - [ ] Multiple servers:
+- [ ] Multiple servers:
 
-- [Stack overflow](https://stackoverflow.com/questions/46801096/socket-io-switch-between-localhost-server)
+  - [Stack overflow](https://stackoverflow.com/questions/46801096/socket-io-switch-between-localhost-server)
 
   - [ ] Change layout (for offline game, not require connect to server at the first time)
 
 - [ ] Responsive for mobile.
 
-  - [x] REMOVED! ~~Update Translator~~ (Old way is good enough).
+- [x] REMOVED! ~~Update Translator~~ (Old way is good enough).
 
-- [Big tips with i18n](https://medium.com/@WebReflection/easy-i18n-in-10-lines-of-javascript-poc-eb9e5444d71e)
+  - [Big tips with i18n](https://medium.com/@WebReflection/easy-i18n-in-10-lines-of-javascript-poc-eb9e5444d71e)
 
   - [Tips](https://codeburst.io/translating-your-website-in-pure-javascript-98b9fa4ce427)
