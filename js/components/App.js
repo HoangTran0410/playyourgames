@@ -5,7 +5,7 @@
  * @desc [description]
  */
 import { Config } from '../configs/Config.js';
-import { Lang } from '../utils/Lang.js';
+import { Lang } from './Lang.js';
 import { Socket } from './Socket.js';
 
 const App = function () {
@@ -26,7 +26,7 @@ const App = function () {
   };
 
   this.config = new Config();
-  this.lang = new Lang(this.config);
+  this.lang = new Lang(this);
   this.socket = new Socket(this);
 };
 

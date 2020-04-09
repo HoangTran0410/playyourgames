@@ -4,10 +4,10 @@
  * @modify date 2020-03-31 21:53:05
  * @desc [description]
  */
-const Lang = function(config) {
-  let language = config.getKey('language');
+const Lang = function (app) {
+  let locale = app.config.getKey('locale');
 
-  const values = {
+  const languages = {
     en: {
       name: 'English',
 
@@ -73,7 +73,7 @@ const Lang = function(config) {
       'settings/reset/confirm/button/ok': 'Oke',
       'settings/reset/confirm/button/cancel': 'Cancel',
     },
-    vn: {
+    vi: {
       name: 'Tiếng Việt',
 
       'disconnect/server/title': 'Mất kết nối',
@@ -144,32 +144,29 @@ const Lang = function(config) {
     getKey(key, specificLang) {
       let result;
       if (specificLang) {
-        result = values[specificLang][key] || '???';
+        result = languages[specificLang][key] || '???';
       } else {
-        result = values[language][key] || '???';
+        result = languages[locale][key] || '???';
       }
-
-      // if (replaceString) {
-      //   if (value.indexOf('$') >= 0) {
-      //     value = value.replace('$', replaceString);
-      //   }
-      // }
 
       return result;
     },
-    set(lang) {
-      if (!values[lang]) return;
 
-      language = lang;
-      config.setKey('language', lang);
+    set(_locale) {
+      if (!languages[_locale]) return;
+
+      locale = _locale;
+      app.config.setKey('locale', _locale);
     },
+
     getCurrentLang() {
-      return language;
+      return locale;
     },
+
     getAvailableLangs() {
       const availableLangs = {};
-      Object.keys(values).forEach(key => {
-        availableLangs[key] = values[key].name || '???';
+      Object.keys(languages).forEach((key) => {
+        availableLangs[key] = languages[key].name || '???';
       });
       return availableLangs;
     },

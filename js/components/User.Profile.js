@@ -15,9 +15,9 @@ import {
   UIDiv,
 } from '../utils/ui.js';
 
-import Utils from '../utils/functions.js';
+import { copyTextToClipboard } from '../utils/functions.js';
 
-const UserProfile = function(app) {
+const UserProfile = function (app) {
   const { lang, config } = app;
 
   // container
@@ -41,11 +41,11 @@ const UserProfile = function(app) {
   const id = new UIInput()
     .setDisabled(true)
     .setStyle('margin', 'auto 5px')
-    .onChange(function() {
+    .onChange(function () {
       console.log('input id changed');
     });
 
-  app.signals.socketConnected.add(function(socketId) {
+  app.signals.socketConnected.add(function (socketId) {
     id.setValue(socketId);
     id.setStyle('width', socketId.length + 'ch');
     btnCopy.setDisabled(false);
@@ -59,19 +59,19 @@ const UserProfile = function(app) {
 
   const btnCopy = new UIButton(lang.getKey('user/profile/id/copy'))
     .add(new UIIcon('fa fa-clone'))
-    .onClick(function() {
-      Utils.copyTextToClipboard(
+    .onClick(function () {
+      copyTextToClipboard(
         id.getValue(),
-        function() {
+        function () {
           btnCopy.addClass('hidden');
           txtCopied.removeClass('hidden');
 
-          setTimeout(function() {
+          setTimeout(function () {
             btnCopy.removeClass('hidden');
             txtCopied.addClass('hidden');
           }, 3000);
         },
-        function(err) {
+        function (err) {
           Swal.fire({
             icon: 'error',
             title: lang.getKey('user/profile/id/copy/error/title'),
@@ -104,7 +104,7 @@ const UserProfile = function(app) {
   // button edit
   const btnEditName = new UIButton(lang.getKey('user/profile/username/edit'))
     .add(new UIIcon('fa fa-edit'))
-    .onClick(function() {
+    .onClick(function () {
       nameInput.setDisabled(false);
       nameInput.focus();
 
@@ -116,7 +116,7 @@ const UserProfile = function(app) {
     new UIButton(lang.getKey('user/profile/username/edit/accept'))
       .add(new UIIcon('fa fa-check'))
       .addClass('bg-success-hover')
-      .onClick(function() {
+      .onClick(function () {
         // check name
         config.setKey('userName', nameInput.getValue());
 
@@ -127,7 +127,7 @@ const UserProfile = function(app) {
     new UIButton(lang.getKey('user/profile/username/edit/cancel'))
       .add(new UIIcon('fa fa-ban'))
       .addClass('bg-danger-hover')
-      .onClick(function() {
+      .onClick(function () {
         nameInput.setValue(config.getKey('userName') || '');
 
         nameInput.setDisabled(true);

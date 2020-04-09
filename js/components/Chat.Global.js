@@ -4,9 +4,9 @@
  * @modify date 2020-03-30 00:02:40
  * @desc [description]
  */
-import { UIPanel, UIText, UISelect } from '../utils/ui.js';
+import { UIPanel, UIText } from '../utils/ui.js';
 
-const ChatGlobal = function(app) {
+const ChatGlobal = function (app) {
   const { lang } = app;
 
   const container = new UIPanel();

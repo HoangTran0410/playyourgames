@@ -13,7 +13,6 @@ import {
   UIButton,
   UIIcon,
 } from '../utils/ui.js';
-import Utils from '../utils/functions.js';
 
 const Settings = function (app) {
   // console.log("Settings -> app", app)
@@ -72,15 +71,15 @@ const Settings = function (app) {
   });
 
   // get prefer theme if needed
-  if (!config.getKey('theme')) {
-    const preferTheme = Utils.detectColorScheme();
-    // console.log(`Prefer theme detected: ${preferTheme}`);
-    if (preferTheme) {
-      app.signals.changeTheme.dispatch(preferTheme);
-    } else {
-      app.signals.changeTheme.dispatch('light'); // default theme
-    }
-  }
+  // if (!config.getKey('theme')) {
+  //   const preferTheme = Utils.detectColorScheme();
+  //   // console.log(`Prefer theme detected: ${preferTheme}`);
+  //   if (preferTheme) {
+  //     app.signals.changeTheme.dispatch(preferTheme);
+  //   } else {
+  //     app.signals.changeTheme.dispatch('light'); // default theme
+  //   }
+  // }
 
   const themeRow = new UIRow().add(
     new UIText(lang.getKey('settings/theme')).setStyle('width', w),
