@@ -10,7 +10,7 @@ import { detectLanguage, detectColorScheme } from '../utils/functions.js';
 const Config = function () {
   const staticStorage = {
     serverUrl: 'https://playyourgames-server.herokuapp.com/',
-//     serverUrl: 'localhost:3000',
+    //     serverUrl: 'localhost:3000',
     themes: ['light', 'dark'],
     lsKey: 'playYourGames',
   };
@@ -20,10 +20,10 @@ const Config = function () {
     userName: null,
   };
 
-  if (window.localStorage[name] === undefined) {
-    window.localStorage[name] = JSON.stringify(storage);
+  if (window.localStorage[staticStorage.lsKey] === undefined) {
+    window.localStorage[staticStorage.lsKey] = JSON.stringify(storage);
   } else {
-    var data = JSON.parse(window.localStorage[name]);
+    var data = JSON.parse(window.localStorage[staticStorage.lsKey]);
 
     for (var key in data) {
       storage[key] = data[key];
